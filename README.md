@@ -1,48 +1,76 @@
-# NFT Marketplace
-
-## Technology Stack & Tools
-
-- Solidity (Writing Smart Contract)
-- Javascript (React & Testing)
-- [Ethers](https://docs.ethers.io/v5/) (Blockchain Interaction)
-- [Hardhat](https://hardhat.org/) (Development Framework)
-- [Ipfs](https://ipfs.io/) (Metadata storage)
-- [React routers](https://v5.reactrouter.com/) (Navigational components)
-
-## Requirements For Initial Setup
-- Install [NodeJS](https://nodejs.org/en/), should work with any node version below 16.5.0
-- Install [Hardhat](https://hardhat.org/)
-
-## Setting Up
-### 1. Clone/Download the Repository
-
-### 2. Install Dependencies:
-```
-$ cd nft_marketplace
-$ npm install
-```
-### 3. Boot up local development blockchain
-```
-$ cd nft_marketplace
-$ npx hardhat node
-```
-
-### 4. Connect development blockchain accounts to Metamask
-- Copy private key of the addresses and import to Metamask
-- Connect your metamask to hardhat blockchain, network 127.0.0.1:8545.
-- If you have not added hardhat to the list of networks on your metamask, open up a browser, click the fox icon, then click the top center dropdown button that lists all the available networks then click add networks. A form should pop up. For the "Network Name" field enter "Hardhat". For the "New RPC URL" field enter "http://127.0.0.1:8545". For the chain ID enter "31337". Then click save.  
+<div id="top"></div>
 
 
-### 5. Migrate Smart Contracts
-`npx hardhat run src/backend/scripts/deploy.js --network localhost`
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
 
-### 6. Run Tests
-`$ npx hardhat test`
+<h3 align="center">Lottery dApp</h3>
 
-### 7. Launch Frontend
-`$ npm run start`
+  <p align="center">
+    A decentralized app using React, Hardhat, Solidity
+    <br />
+    <a href="https://github.com/HarryxDD/lottery-dapp-v2"><strong>Explore the code »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/HarryxDD/lottery-dapp-v2">View Demo</a>
+    ·
+    <a href="https://github.com/HarryxDD/lottery-dapp-v2/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/HarryxDD/lottery-dapp-v2/issues">Request Feature</a>
+  </p>
+</div>
 
-License
-----
-MIT
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+<!-- [![Alyx Mystery][product-screenshot]](https://imgur.com/u23mQlJ) -->
+
+This is a simple decentralized app for buying tickets and see how your luck is
+
+Currently, the project has completed some of the basic concepts and can be used. You can read the instruction right below.
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Visit the Github at: https://github.com/HarryxDD/lottery-dapp-v2
+2. Clone the repo 
+   ```sh
+   git clone https://github.com/HarryxDD/lottery-dapp-v2
+   ```
+3. Change the directory to the project folder
+   ```sh
+   cd ~/auction-dapp
+   ```
+4. Install NPM packages
+   ```sh
+   npm i
+   ```
+5. Run Hardhat local node
+   ```sh
+   npx hardhat node
+   ```
+6. Deploy smart contract
+   ```sh
+   npx hardhat run .\src\backend\scripts\deploy.js --network localhost
+   ```
+7. Run the project
+   ```sh
+   npm run start
+   ```
+
+The app will be available at http://localhost:3000.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
