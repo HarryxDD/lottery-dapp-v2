@@ -1,19 +1,27 @@
+const { network, ethers } = require('hardhat');
+const { networkConfig } = require('../../../helper-hardhat-config.js') 
+
+
 async function main() {
   const [deployer] = await ethers.getSigners();
+  const chainId = network.config.chainId;
+  const subscriptionId = networkConfig[chainId][["subscriptionId"]];
 
   console.log("Deploying contracts with the account:", deployer.address);
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
   
   // Get the ContractFactories and Signers here.
-  const NFT = await ethers.getContractFactory("NFT");
-  const Marketplace = await ethers.getContractFactory("Marketplace");
+  const Token = await ethers.getContractFactory("LTRToken");
+  const Lottery = await ethers.getContractFactory("Lottery");
+
   // deploy contracts
-  const marketplace = await Marketplace.deploy(1);
-  const nft = await NFT.deploy();
+  const token = await Token.deploy();
+  const lottery = await Lottery.deploy(subscriptionId, token.address, { gasLimit: 200000});
+
   // Save copies of each contracts abi and address to the frontend.
-  saveFrontendFiles(marketplace , "Marketplace");
-  saveFrontendFiles(nft , "NFT");
+  saveFrontendFiles(lottery , "Lottery");
+  saveFrontendFiles(token , "LTRToken");
 }
 
 function saveFrontendFiles(contract, name) {
