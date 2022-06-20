@@ -9,7 +9,7 @@ const networkConfig = {
 
     4: { 
         name: "rinkeby",
-        subscriptionId: "6831",
+        subscriptionId: "6861",
     },
 
     

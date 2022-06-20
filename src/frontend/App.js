@@ -1,4 +1,4 @@
-import { React, useState} from 'react'
+import { React, useEffect, useState } from 'react'
 import './App.css'
 
 import LotteryAbi from './contractsData/Lottery.json'
@@ -7,13 +7,11 @@ import LTRTokenAbi from './contractsData/Lottery.json'
 import LTRTokenAddress from './contractsData/LTRToken-address.json'
 
 import { ethers } from 'ethers'
-import { Header, Lottery, Navbar } from './components'
+import { Footer, Header, Lottery, Navbar } from './components'
 
 const App = () => {
 
-  const [loading, setLoading] = useState(true)
   const [account, setAccount] = useState(null)
-  const [token, setToken] = useState({})
   const [lottery, setLottery] = useState({})
 
   const web3Handler = async () => {
@@ -28,18 +26,17 @@ const App = () => {
   }
 
   const loadContracts = async (signer) => {
-    const token = new ethers.Contract(LTRTokenAddress.address, LTRTokenAbi.abi, signer)
+    // const token = new ethers.Contract(LTRTokenAddress.address, LTRTokenAbi.abi, signer)
     const lottery = new ethers.Contract(LotteryAddress.address, LotteryAbi.abi, signer)
-    setToken(token)
     setLottery(lottery)
-    setLoading(false)
   }
 
   return (
     <div className='App'>
       <Navbar web3Handler={web3Handler} account={account}/>
-      <Header />
-      <Lottery />
+      <Header lottery={lottery} account={account} />
+      <Lottery lottery={lottery} />
+      <Footer />
     </div>
   )
 }

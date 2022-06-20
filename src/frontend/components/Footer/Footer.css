@@ -1,0 +1,21 @@
+.app__footer {
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-base);
+    align-items: center;
+    justify-content: center;
+}
+
+.app__footer-title {
+    font-size: 18px;
+    margin-bottom: 0.7rem;
+}
+
+.app__footer-contact {
+    font-style: italic;
+}
+
+.app__footer-contact a {
+    font-weight: 600;
+}

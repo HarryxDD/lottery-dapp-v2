@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 500px;
+    height: 45vh;
     justify-content: center;
     font-family: var(--font-base);
 }
@@ -14,5 +14,5 @@
 
 .app__header p {
     margin-top: 20px;
-    font-size: 17px;
+    font-size: 24px;
 }

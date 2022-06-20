@@ -17,7 +17,10 @@ async function main() {
 
   // deploy contracts
   const token = await Token.deploy();
-  const lottery = await Lottery.deploy(subscriptionId, token.address, { gasLimit: 200000});
+  const lottery = await Lottery.deploy(subscriptionId, token.address, { gasLimit: 2000000});
+
+  console.log("token deploy at: ", token.address);
+  console.log("lottery deploy at: ", lottery.address);
 
   // Save copies of each contracts abi and address to the frontend.
   saveFrontendFiles(lottery , "Lottery");

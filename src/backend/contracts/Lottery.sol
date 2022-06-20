@@ -17,6 +17,7 @@ contract Lottery is VRFConsumerBaseV2 {
     uint64 public s_ticketMax = 6;
     uint64 public winningNumber;
     address public s_owner;
+    uint256 public prize;
 
     // vrf vars using Rinkeby testnet
     VRFCoordinatorV2Interface COORDINATOR;
@@ -73,6 +74,8 @@ contract Lottery is VRFConsumerBaseV2 {
 
         token.transferFrom(msg.sender, address(this), s_ticketPrice);
 
+        prize += 50;
+
         // Avoid reentrancy attacks
         address purchaser = msg.sender;
         players.push(purchaser);
@@ -85,9 +88,6 @@ contract Lottery is VRFConsumerBaseV2 {
     }
 
     function claimReward() public returns (address) {
-
-        // Winning money
-        uint256 prize = 200;
 
         // Winning player
         address winner = ticketOwner[winningNumber];
@@ -105,7 +105,7 @@ contract Lottery is VRFConsumerBaseV2 {
     }
 
     // Lottery Picker
-    function requestRandomWords() external onlyOwner {
+    function requestRandomWords() external {
         s_requestId = COORDINATOR.requestRandomWords(
             keyHash,
             s_subscriptionId,
@@ -142,10 +142,21 @@ contract Lottery is VRFConsumerBaseV2 {
         delete ticketOwner;
         delete players;
 
+        winningNumber = 0;
+        prize = 0;
+
         return true;
     }
 
     function getTicketsPurchased(address _player) public view returns (uint64) {
         return ticketsBought[_player];
+    }
+
+    function getCurrentPrize() public view returns (uint256) {
+        return prize;
+    }
+
+    function getWinningNumber() public view returns (uint64) {
+        return winningNumber;
     }
 }

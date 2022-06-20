@@ -4,7 +4,7 @@
     color: white;
     font-family: var(--font-base);
     width: 100vw;
-    height: 90px;
+    height: 8vh;
     align-items: center;
     justify-content: space-between;
 }
