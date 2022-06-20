@@ -1,0 +1,29 @@
+.app__navbar {
+    display: flex;
+    background-color: var(--color-gray);
+    color: white;
+    font-family: var(--font-base);
+    width: 100vw;
+    height: 90px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app__navbar-logo {
+    font-size: 25px;
+}
+
+.navbar__connect button {
+    padding: 1rem 2rem;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+
+    transition: all 0.5s ease;
+}
+
+.navbar__connect button:hover {
+    background-color: var(--color-gray);
+    color: white;
+}
