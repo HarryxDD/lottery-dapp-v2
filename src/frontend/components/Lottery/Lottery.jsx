@@ -20,19 +20,6 @@ const Lottery = ({ lottery }) => {
         
     }
 
-    const requestRandomWords = async () => {
-        await (await lottery.requestRandomWords()).wait()
-        const winningNumber = await lottery.winningNumber()
-      }
-    
-    useEffect(() => {
-    const interval = setInterval(() => {
-        console.log("Finding winning number");
-        requestRandomWords();
-    }, MINUTE_MS); 
-
-    return () => clearInterval(interval);
-    }, [])
 
   return (
     <div className='app__lottery'>
