@@ -1,10 +1,8 @@
-import { React, useEffect, useState } from 'react'
+import { React, useState } from 'react'
 import './App.css'
 
 import LotteryAbi from './contractsData/Lottery.json'
 import LotteryAddress from './contractsData/Lottery-address.json'
-import LTRTokenAbi from './contractsData/Lottery.json'
-import LTRTokenAddress from './contractsData/LTRToken-address.json'
 
 import { ethers } from 'ethers'
 import { Footer, Header, Lottery, Navbar } from './components'
