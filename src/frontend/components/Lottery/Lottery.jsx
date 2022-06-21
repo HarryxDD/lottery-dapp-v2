@@ -15,8 +15,9 @@ const Lottery = ({ lottery }) => {
         } catch (err) {
             console.log(err)
         }
-        
     }
+
+    
 
 
   return (

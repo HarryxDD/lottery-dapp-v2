@@ -150,6 +150,7 @@ contract Lottery is VRFConsumerBaseV2 {
         delete ticketOwner;
         delete players;
 
+        ownedTickets = 0;
         winningNumber = 0;
         prize = 0;
 
