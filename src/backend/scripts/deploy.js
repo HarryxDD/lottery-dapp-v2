@@ -1,4 +1,4 @@
-const { network, ethers } = require('hardhat');
+const { network, ethers, upgrades } = require('hardhat');
 const { networkConfig } = require('../../../helper-hardhat-config.js') 
 
 
@@ -12,11 +12,14 @@ async function main() {
 
   
   // Get the ContractFactories and Signers here.
-  const Token = await ethers.getContractFactory("THVToken");
+  const Token = await ethers.getContractFactory("THVTokenUpgradeable");
   const Lottery = await ethers.getContractFactory("Lottery");
 
   // deploy contracts
-  const token = await Token.deploy();
+  const token = await upgrades.deployProxy(Token, [], {
+    initializer: "initialize",
+  });
+  await token.deployed();
   const lottery = await Lottery.deploy(subscriptionId, token.address, { gasLimit: 2000000});
 
   console.log("token deploy at: ", token.address);
@@ -24,7 +27,7 @@ async function main() {
 
   // Save copies of each contracts abi and address to the frontend.
   saveFrontendFiles(lottery , "Lottery");
-  saveFrontendFiles(token , "THVToken");
+  saveFrontendFiles(token , "THVTokenUpgradeable");
 }
 
 function saveFrontendFiles(contract, name) {
