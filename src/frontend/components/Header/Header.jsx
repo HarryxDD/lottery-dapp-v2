@@ -28,7 +28,7 @@ const Header = ({ lottery, account }) => {
     <div className='app__header'>
         <h1>Welcome to the Lottery!</h1>
         {account ? (
-          <p>Current prize is {ethers.utils.formatUnits(prize, 'wei')} LTR - Latest winning number: {ethers.utils.commify(winningNumber, )}</p>
+          <p>Current prize is {ethers.utils.formatUnits(prize, 'wei')} THV - Latest winning number: {ethers.utils.commify(winningNumber, )}</p>
         ) : (
           <p>Connect your wallet first</p>
         )}

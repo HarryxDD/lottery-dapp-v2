@@ -12,7 +12,7 @@ async function main() {
 
   
   // Get the ContractFactories and Signers here.
-  const Token = await ethers.getContractFactory("LTRToken");
+  const Token = await ethers.getContractFactory("THVToken");
   const Lottery = await ethers.getContractFactory("Lottery");
 
   // deploy contracts
@@ -24,7 +24,7 @@ async function main() {
 
   // Save copies of each contracts abi and address to the frontend.
   saveFrontendFiles(lottery , "Lottery");
-  saveFrontendFiles(token , "LTRToken");
+  saveFrontendFiles(token , "THVToken");
 }
 
 function saveFrontendFiles(contract, name) {

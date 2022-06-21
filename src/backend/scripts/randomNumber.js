@@ -8,7 +8,7 @@ const fsPromises = fs.promises;
 // The path to the contract ABI
 const ABI_FILE_PATH = 'src/frontend/contractsData/Lottery.json';
 // The address from the deployed smart contract
-const DEPLOYED_CONTRACT_ADDRESS = '0x73D97c137c50bd5408E55c2EDDa4C16dcFb8C339';
+const DEPLOYED_CONTRACT_ADDRESS = '0x53A8C2c01332Cf9E53aF321920935831442e0fc3';
 
 // load ABI from build artifacts
 async function getAbi(){
