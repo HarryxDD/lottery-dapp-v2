@@ -1,11 +1,9 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import './Lottery.css'
 
 const Lottery = ({ lottery }) => {
 
     const [ticket, setTicket] = useState(0)
-    const [errorMessage, setErrorMessage] = useState("")
-    const MINUTE_MS = 60000;
 
     const buyTicket = async (ticket) => {
         await (await lottery.buyTicket(ticket)).wait()
@@ -15,7 +13,7 @@ const Lottery = ({ lottery }) => {
         try {
             await (await lottery.claimReward()).wait()
         } catch (err) {
-            setErrorMessage("You are not the winner!!")
+            console.log(err)
         }
         
     }

@@ -1,7 +1,6 @@
 require("@nomiclabs/hardhat-ethers");
 require("dotenv").config();
 var fs = require('fs');
-const util = require('util');
 var ethers = require('ethers')
 const fsPromises = fs.promises;
 
